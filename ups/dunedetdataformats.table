@@ -1,0 +1,21 @@
+File    = table
+Product = dunedetdataformats
+
+Group:
+
+Flavor    = ANY
+Qualifiers = ""
+
+Common:
+  Action = setup
+     prodDir()
+     setupEnv()
+     envSet(${UPS_PROD_NAME_UC}_VERSION, ${UPS_PROD_VERSION})
+     # CMAKE_PREFIX_PATH
+     pathPrepend(CMAKE_PREFIX_PATH, "${UPS_PROD_DIR}")
+     prodDir( _INC, include )
+     if ( test -n "${${UPS_PROD_NAME_UC}_INC}" )
+       pathPrepend(ROOT_INCLUDE_PATH, "${${UPS_PROD_NAME_UC}_INC}")
+     else()
+     endIf ( test -n "${${UPS_PROD_NAME_UC}_INC}" )
+End:
