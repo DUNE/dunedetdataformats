@@ -3,6 +3,10 @@ Offline-versioned files from DUNE-DAQ/detdataformats
 
 The DUNE Offline needs to have all versions of the data formats produced by the DUNE DAQ available for all jobs at any time.  As of May 2023, all new detector data formats have been given new class names and header files with distinct names, and so directories with version numbers have not yet been required.
 
+Original files and documentation are available at
+
+https://github.com/DUNE-DAQ/detdataformats
+
 ## Copyright and Licensing
 Copyright © 2023 FERMI NATIONAL ACCELERATOR LABORATORY for the benefit of the DUNE Collaboration.
 
