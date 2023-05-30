@@ -1,5 +1,5 @@
 /**
- * @file WIBFrame_test.cxx WIBFrame class Unit Tests
+ * @file WIB2Frame_test.cxx WIB2Frame class Unit Tests
  *
  * This is part of the DUNE DAQ Application Framework, copyright 2020.
  * Licensing/copyright details are in the COPYING file that you should have
@@ -40,7 +40,7 @@ typedef struct
   uint32_t femb_b_seg[56]; // NOLINT(build/unsigned)
   uint32_t wib_post[2];    // NOLINT(build/unsigned)
   uint32_t idle_frame;     // NOLINT(build/unsigned)
-} __attribute__((packed)) frame14;
+} frame14;
 
 // Samples from the U, V, X channels in a femb_*_seg of a frame as 16bit arrays
 typedef struct
@@ -394,6 +394,27 @@ BOOST_DATA_TEST_CASE(CompareToUnpack, boost::unit_test::data::make(make_vals()),
   // } // loop over femb
 
   BOOST_REQUIRE_EQUAL(num_errors, 0);
+}
+
+BOOST_AUTO_TEST_CASE(WIB2Frame_ADCDataMutators)
+{
+  std::random_device dev;
+  std::mt19937 rng(dev());
+  std::uniform_int_distribution<std::mt19937::result_type> dist(1,(1<<14)-1);
+  std::vector<int> v;
+  for(int i=0; i<256; i++) {
+    v.push_back(dist(rng));
+  }
+
+  WIB2Frame wib2frame {};
+  for(int i=0; i<256; i++) {
+    wib2frame.set_adc(i, v[i]);
+  }
+
+  for(int i=0; i<256; i++) {
+    BOOST_REQUIRE_EQUAL(wib2frame.get_adc(i), v[i]);
+  }
+
 }
 
 BOOST_AUTO_TEST_SUITE_END()

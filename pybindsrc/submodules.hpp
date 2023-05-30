@@ -9,6 +9,7 @@ namespace detdataformats {
 namespace python {
 void register_detid(pybind11::module &);
 void register_daqheader(pybind11::module &);
+void register_daqethheader(pybind11::module &);
 }  // namespace python
 
 namespace wib {
@@ -22,6 +23,12 @@ namespace python {
 extern void register_wib2(pybind11::module &);
 }
 }  // namespace wib2
+
+namespace wibeth {
+namespace python {
+extern void register_wibeth(pybind11::module &);
+}
+} // namespace wibeth
 
 namespace daphne {
 namespace python {
@@ -46,6 +53,19 @@ namespace python {
 extern void register_hsi(pybind11::module &);
 }
 }  // namespace hsi
+
+
+namespace tde {
+namespace python {
+extern void register_tde(pybind11::module &);
+}
+}  // namespace tde
+
+namespace mpd {
+namespace python {
+extern void register_mpd(pybind11::module &);    
+}
+}  // namespace mpd
 
 }  // namespace detdataformats
 }  // namespace dunedaq
