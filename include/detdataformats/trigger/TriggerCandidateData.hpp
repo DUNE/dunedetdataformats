@@ -6,16 +6,16 @@
  * received with this code.
  */
 
-#ifndef DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TRIGGERCANDIDATEDATA_HPP_
-#define DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TRIGGERCANDIDATEDATA_HPP_
+#ifndef TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGERCANDIDATEDATA_HPP_
+#define TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGERCANDIDATEDATA_HPP_
 
 #include "detdataformats/trigger/Types.hpp"
 
 #include <cstdint>
+#include <map>
+#include <string>
 
-namespace dunedaq {
-namespace detdataformats {
-namespace trigger {
+namespace dunedaq::trgdataformats {
 
 struct TriggerCandidateData
 {
@@ -62,8 +62,34 @@ struct TriggerCandidateData
   Algorithm algorithm = Algorithm::kUnknown; // NOLINT(build/unsigned)
 };
 
-} // namespace trigger
-} // namespace detdataformats
-} // namespace dunedaq
+// This map needs to be updated for each new TC type, as this is used when configuring Trigger Bitwords, affecting trigger logic in trigger::MLT
+inline std::map<TriggerCandidateData::Type, std::string>
+get_trigger_candidate_type_names()
+{
+  return {
+    { TriggerCandidateData::Type::kUnknown, "kUnknown" },
+    { TriggerCandidateData::Type::kTiming, "kTiming" },
+    { TriggerCandidateData::Type::kTPCLowE, "kTPCLowE" },
+    { TriggerCandidateData::Type::kSupernova, "kSupernova" },
+    { TriggerCandidateData::Type::kRandom, "kRandom" },
+    { TriggerCandidateData::Type::kPrescale, "kPrescale" },
+    { TriggerCandidateData::Type::kADCSimpleWindow, "kADCSimpleWindow" },
+    { TriggerCandidateData::Type::kHorizontalMuon, "kHorizontalMuon" },
+    { TriggerCandidateData::Type::kMichelElectron, "kMichelElectron" },
+    { TriggerCandidateData::Type::kPlaneCoincidence, "kPlaneCoincidence" },
+  };
+}
 
-#endif // DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TRIGGERCANDIDATEDATA_HPP_
+inline int
+string_to_fragment_type_value(const std::string& name)
+{
+  for (auto& it : get_trigger_candidate_type_names()) {
+    if (it.second == name)
+      return static_cast<int>(it.first);
+  }
+  return static_cast<int>(TriggerCandidateData::Type::kUnknown);
+}
+
+} // namespace dunedaq::trgdataformats
+
+#endif // TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGERCANDIDATEDATA_HPP_

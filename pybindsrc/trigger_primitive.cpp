@@ -6,17 +6,14 @@
  * received with this code.
  */
 
-#include "detdataformats/trigger/TriggerPrimitive.hpp"
+#include "trgdataformats/TriggerPrimitive.hpp"
 
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
 namespace py = pybind11;
 
-namespace dunedaq {
-namespace detdataformats {
-namespace trigger {
-namespace python {
+namespace dunedaq::trgdataformats::python {
 
 void
 register_trigger_primitive(py::module& m)
@@ -56,7 +53,4 @@ register_trigger_primitive(py::module& m)
 
 }
 
-} // namespace python
-} // namespace trigger
-} // namespace timing
-} // namespace dunedaq
+} // namespace dunedaq::trgdataformats::python

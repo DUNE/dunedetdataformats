@@ -6,16 +6,14 @@
  * received with this code.
  */
 
-#ifndef DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TRIGGEROBJECTOVERLAY_HPP_
-#define DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TRIGGEROBJECTOVERLAY_HPP_
+#ifndef TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGEROBJECTOVERLAY_HPP_
+#define TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGEROBJECTOVERLAY_HPP_
 
-#include "detdataformats/trigger/TriggerActivityData.hpp"
-#include "detdataformats/trigger/TriggerCandidateData.hpp"
-#include "detdataformats/trigger/TriggerPrimitive.hpp"
+#include "trgdataformats/TriggerActivityData.hpp"
+#include "trgdataformats/TriggerCandidateData.hpp"
+#include "trgdataformats/TriggerPrimitive.hpp"
 
-namespace dunedaq {
-namespace detdataformats {
-namespace trigger {
+namespace dunedaq::trgdataformats {
 
 template<class DataType, class InputType>
 struct TriggerObjectOverlay
@@ -34,8 +32,6 @@ using TriggerActivity = TriggerObjectOverlay<TriggerActivityData, TriggerPrimiti
 
 using TriggerCandidate = TriggerObjectOverlay<TriggerCandidateData, TriggerActivityData>;
 
-} // namespace trigger
-} // namespace detdataformats
-} // namespace dunedaq
+} // namespace dunedaq::trgdataformats
 
-#endif // DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TRIGGERCANDIDATEOVERLAY_HPP_
+#endif // TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGEROBJECTOVERLAY_HPP_

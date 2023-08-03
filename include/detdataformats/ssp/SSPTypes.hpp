@@ -3,15 +3,12 @@
  * Licensing/copyright details are in the COPYING file that you should have
  * received with this code.
  */
-#ifndef DETDATAFORMATS_INCLUDE_DETDATAFORMATS_SSP_SSPTYPES_HPP_
-#define DETDATAFORMATS_INCLUDE_DETDATAFORMATS_SSP_SSPTYPES_HPP_
+#ifndef FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_SSPTYPES_HPP_
+#define FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_SSPTYPES_HPP_
 
 #include <cstdlib>
 
-namespace dunedaq {
-namespace detdataformats {
-
-namespace ssp {
+namespace dunedaq::fddetdataformats::ssp {
 
 // Readable names for interface types
 enum Comm_t
@@ -118,11 +115,9 @@ struct CtrlHeader
 struct CtrlPacket
 {
   CtrlHeader header;
-  unsigned int data[ssp::max_control_data];
+  unsigned int data[max_control_data];
 };
 
-} // namespace ssp
-} // namespace dataformats
-} // namespace dunedaq
+} // namespace dunedaq::fddetdataformats::ssp
 
-#endif // DETDATAFORMATS_INCLUDE_DETDATAFORMATS_SSP_SSPTYPES_HPP_
+#endif // FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_SSPTYPES_HPP_

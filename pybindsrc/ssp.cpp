@@ -6,7 +6,7 @@
  * received with this code.
  */
 
-#include "detdataformats/ssp/SSPTypes.hpp"
+#include "fddetdataformats/SSPTypes.hpp"
 
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
@@ -14,22 +14,21 @@
 
 namespace py = pybind11;
 
-namespace dunedaq {
-namespace detdataformats {
-namespace ssp {
-namespace python {
+using namespace dunedaq::fddetdataformats::ssp;
+
+namespace dunedaq::fddetdataformats::python {
 
 void
 register_ssp(py::module& m)
 { 
     py::enum_<Comm_t>(m, "Comm_t")
-    .value("kUSB", ssp::kUSB)
-    .value("kEthernet", ssp::kEthernet)
-    .value("kEmulated", ssp::kEmulated)
+    .value("kUSB", kUSB)
+    .value("kEthernet", kEthernet)
+    .value("kEmulated", kEmulated)
     .export_values()
   ;
 
-  m.attr("max_control_data") = ssp::max_control_data;
+  m.attr("max_control_data") = max_control_data;
   
   py::enum_<commandConstants>(m, "commandConstants")
     .value("cmdNone", cmdNone)
@@ -121,13 +120,10 @@ register_ssp(py::module& m)
     .def_property_readonly("data",
       [](const CtrlPacket& self) -> pybind11::array {
         auto dtype = py::dtype(py::format_descriptor<unsigned int>::format());
-        auto base = py::array(dtype, {ssp::max_control_data}, {sizeof(unsigned int)});
-        return pybind11::array(dtype, {ssp::max_control_data}, {sizeof(unsigned int)}, self.data, base);
+        auto base = py::array(dtype, {max_control_data}, {sizeof(unsigned int)});
+        return pybind11::array(dtype, {max_control_data}, {sizeof(unsigned int)}, self.data, base);
       },
       py::return_value_policy::reference_internal)
   ;
 }
-} // namespace python
-} // namespace ssp
-} // namespace detdataformats
-} // namespace dunedaq
+} // namespace dunedaq::fddetdataformats::python

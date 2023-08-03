@@ -10,8 +10,8 @@
  * received with this code.
  */
 
-#ifndef DETDATAFORMATS_INCLUDE_DATAFORMATS_WIBETH_WIBETHFRAME_HPP_
-#define DETDATAFORMATS_INCLUDE_DATAFORMATS_WIBETH_WIBETHFRAME_HPP_
+#ifndef FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_WIBETHFRAME_HPP_
+#define FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_WIBETHFRAME_HPP_
 
 #include "detdataformats/DAQEthHeader.hpp"
 
@@ -22,9 +22,7 @@
 #include <cstdlib>
 #include <stdexcept> // For std::out_of_range
 
-namespace dunedaq {
-namespace detdataformats {
-namespace wibeth {
+namespace dunedaq::fddetdataformats {
 
 /**
  *  @brief Class for accessing raw WIB eth frames, as used in ProtoDUNE-II
@@ -52,7 +50,7 @@ public:
   static constexpr int s_num_adc_words = s_time_samples_per_frame * s_num_channels * s_bits_per_adc / s_bits_per_word;
   
 
-  struct WIBHeader
+  struct WIBEthHeader
   {	  
     word_t colddata_timestamp_0 : 15;
     word_t pad_0: 1;
@@ -77,7 +75,7 @@ public:
   // Data members
   // ===============================================================
   detdataformats::DAQEthHeader daq_header;
-  WIBHeader header;
+  WIBEthHeader header;
   // word_t adc_words[s_num_adc_words_per_ts][s_time_samples_per_frame]; // NOLINT
   word_t adc_words[s_time_samples_per_frame][s_num_adc_words_per_ts]; // NOLINT
 
@@ -174,8 +172,6 @@ public:
 
 };
 
-} // namespace wibeth
-} // namespace detdataformats
-} // namespace dunedaq
+} // namespace dunedaq::fddetdataformats
 
-#endif // DETDATAFORMATS_INCLUDE_DATAFORMATS_WIBETH_WIBETHFRAME_HPP_
+#endif // FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_WIBETHFRAME_HPP_

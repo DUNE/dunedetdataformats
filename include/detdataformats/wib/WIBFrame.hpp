@@ -8,17 +8,15 @@
  * Licensing/copyright details are in the COPYING file that you should have
  * received with this code.
  */
-#ifndef DETDATAFORMATS_INCLUDE_DATAFORMATS_WIB_WIBFRAME_HPP_
-#define DETDATAFORMATS_INCLUDE_DATAFORMATS_WIB_WIBFRAME_HPP_
+#ifndef FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_WIBFRAME_HPP_
+#define FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_WIBFRAME_HPP_
 
 #include <bitset>
 #include <iostream>
 #include <vector>
 #include <stdexcept>
 
-namespace dunedaq {
-namespace detdataformats {
-namespace wib {
+namespace dunedaq::fddetdataformats {
 
 using word_t = uint32_t; // NOLINT(build/unsigned)
 using adc_t = uint16_t;  // NOLINT(build/unsigned)
@@ -438,8 +436,6 @@ operator<<(std::ostream& o, WIBFrame const& frame)
   return o;
 }
 
-} // namespace wib
-} // namespace detdataformats
-} // namespace dunedaq
+} // namespace dunedaq::fddetdataformats 
 
-#endif // DETDATAFORMATS_INCLUDE_DATAFORMATS_WIB_WIBFRAME_HPP_
+#endif // FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_WIBFRAME_HPP_

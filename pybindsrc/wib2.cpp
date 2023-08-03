@@ -6,17 +6,14 @@
  * received with this code.
  */
 
-#include "detdataformats/wib2/WIB2Frame.hpp"
+#include "fddetdataformats/WIB2Frame.hpp"
 
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
 namespace py = pybind11;
 
-namespace dunedaq {
-namespace detdataformats {
-namespace wib2 {
-namespace python {
+namespace dunedaq::fddetdataformats::python {
 
 void
 register_wib2(py::module& m)
@@ -73,7 +70,4 @@ register_wib2(py::module& m)
 
 }
 
-} // namespace python
-} // namespace wib2
-} // namespace detdataformats
-} // namespace dunedaq
+} // namespace dunedaq::fddetdataformats::python

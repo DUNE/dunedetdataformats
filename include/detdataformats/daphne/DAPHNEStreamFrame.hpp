@@ -12,8 +12,8 @@
  * received with this code.
  */
 
-#ifndef DETDATAFORMATS_INCLUDE_DATAFORMATS_DAPHNE_DAPHNESTREAMFRAME_HPP_
-#define DETDATAFORMATS_INCLUDE_DATAFORMATS_DAPHNE_DAPHNESTREAMFRAME_HPP_
+#ifndef FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_DAPHNESTREAMFRAME_HPP_
+#define FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_DAPHNESTREAMFRAME_HPP_
 
 #include "detdataformats/DAQHeader.hpp" // For unified DAQ header
 
@@ -24,9 +24,7 @@
 #include <stdexcept> // For std::out_of_range
 #include <cstdint>  // For uint32_t etc
 
-namespace dunedaq {
-namespace detdataformats {
-namespace daphne {
+namespace dunedaq::fddetdataformats {
 
 class DAPHNEStreamFrame
 {
@@ -150,8 +148,6 @@ public:
   }
 };
 
-} // namespace daphne
-} // namespace detdataformats
-} // namespace dunedaq
+} // namespace dunedaq::fddetdataformats
 
-#endif // DETDATAFORMATS_INCLUDE_DATAFORMATS_DAPHNE_DAPHNESTREAMFRAME_HPP_
+#endif // FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_DAPHNESTREAMFRAME_HPP_

@@ -6,8 +6,8 @@
  * received with this code.
  */
 
-#ifndef DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TRIGGERPRIMITIVE_HPP_
-#define DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TRIGGERPRIMITIVE_HPP_
+#ifndef TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGERPRIMITIVE_HPP_
+#define TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGERPRIMITIVE_HPP_
 
 #include "detdataformats/trigger/Types.hpp"
 
@@ -17,9 +17,7 @@
 #include <iostream>
 #include <type_traits>
 
-namespace dunedaq {
-namespace detdataformats {
-namespace trigger {
+namespace dunedaq::trgdataformats {
 
 /**
  * @brief A single energy deposition on a TPC or PDS channel
@@ -110,8 +108,6 @@ operator<<(std::ostream& os, const TriggerPrimitive::Type& t)
   return os << static_cast<underlying_t>(t);
 }
 
-} // namespace trigger
-} // namespace detdataformats
-} // namespace dunedaq
+} // namespace dunedaq::trgdataformats 
 
-#endif // DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TRIGGERPRIMITIVE_HPP_
+#endif // TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGERPRIMITIVE_HPP_

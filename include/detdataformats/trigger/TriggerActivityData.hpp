@@ -6,15 +6,13 @@
  * received with this code.
  */
 
-#ifndef DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TRIGGERACTIVITYDATA_HPP_
-#define DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TRIGGERACTIVITYDATA_HPP_
+#ifndef TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGERACTIVITYDATA_HPP_
+#define TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGERACTIVITYDATA_HPP_
 
 #include "detdataformats/trigger/Types.hpp"
 #include <cstdint>
 
-namespace dunedaq {
-namespace detdataformats {
-namespace trigger {
+namespace dunedaq::trgdataformats {
 
 struct TriggerActivityData
 {
@@ -55,8 +53,6 @@ struct TriggerActivityData
   Algorithm algorithm = Algorithm::kUnknown; // NOLINT(build/unsigned)
 };
 
-} // namespace trigger
-} // namespace detdataformats
-} // namespace dunedaq
+} // namespace dunedaq::trgdataformats
 
-#endif // DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TRIGGERACTIVITYDATA_HPP_
+#endif // TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGERACTIVITYDATA_HPP_

@@ -6,18 +6,15 @@
  * received with this code.
  */
 
-#include "detdataformats/daphne/DAPHNEFrame.hpp"
-#include "detdataformats/daphne/DAPHNEStreamFrame.hpp"
+#include "fddetdataformats/DAPHNEFrame.hpp"
+#include "fddetdataformats/DAPHNEStreamFrame.hpp"
 
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
 namespace py = pybind11;
 
-namespace dunedaq {
-namespace detdataformats {
-namespace daphne {
-namespace python {
+namespace dunedaq::fddetdataformats::python {
 
 void
 register_daphne(py::module& m)
@@ -35,13 +32,14 @@ register_daphne(py::module& m)
       return wfp;
     }))
     .def("get_adc", static_cast<uint16_t (DAPHNEFrame::*)(const int) const>(&DAPHNEFrame::get_adc))
-    .def("get_t", static_cast<uint16_t (DAPHNEFrame::*)(const int) const>(&DAPHNEFrame::get_t))
     .def("get_timestamp", &DAPHNEFrame::get_timestamp)
+    .def("get_channel", &DAPHNEFrame::get_channel)
     .def_static("sizeof", [](){ return sizeof(DAPHNEFrame); })
   ;
 
+  /*
   py::class_<DAPHNEFrame::Header>(m, "DAPHNEHeader")
-    .def_property_readonly("start_frame", [](DAPHNEFrame::Header& self) -> uint32_t {return self.start_frame;})
+    .def_property_readonly("trigger_sample_value", [](DAPHNEFrame::Header& self) -> uint32_t {return self.start_frame;})
     .def_property_readonly("data_version", [](DAPHNEFrame::Header& self) -> uint32_t {return self.data_version;})
     .def_property_readonly("daphne", [](DAPHNEFrame::Header& self) -> uint32_t {return self.daphne;})
     .def_property_readonly("channel", [](DAPHNEFrame::Header& self) -> uint32_t {return self.channel;})
@@ -58,7 +56,7 @@ register_daphne(py::module& m)
     .def_property_readonly("eof", [](DAPHNEFrame::Trailer& self) -> uint32_t {return self.eof;})
     .def_property_readonly("flex_word_24", [](DAPHNEFrame::Trailer& self) -> uint32_t {return self.flex_word_24;})
   ;
-
+  */
 
   py::class_<DAPHNEStreamFrame::Header>(m, "DAPHNEStreamHeader")
     .def_property("channel_0", 
@@ -86,7 +84,7 @@ register_daphne(py::module& m)
         auto wfp = *static_cast<DAPHNEStreamFrame*>(capsule.get_pointer());
         return wfp;
     } ))
-    .def("get_daqheader", [](DAPHNEStreamFrame& self) -> const DAQHeader& {return self.daq_header;}, py::return_value_policy::reference_internal)
+    .def("get_daqheader", [](DAPHNEStreamFrame& self) -> const detdataformats::DAQHeader& {return self.daq_header;}, py::return_value_policy::reference_internal)
     .def("get_header", [](DAPHNEStreamFrame& self) -> const DAPHNEStreamFrame::Header& {return self.header;}, py::return_value_policy::reference_internal)
     .def("get_trailer", [](DAPHNEStreamFrame& self) -> const DAPHNEStreamFrame::Trailer& {return self.trailer;}, py::return_value_policy::reference_internal)
     .def("get_timestamp", &DAPHNEStreamFrame::get_timestamp)
@@ -102,7 +100,4 @@ register_daphne(py::module& m)
   ;
 }
 
-} // namespace python
-} // namespace daphne
-} // namespace detdataformats
-} // namespace dunedaq
+} // namespace dunedaq::fddetdataformats::python

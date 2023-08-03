@@ -9,8 +9,8 @@
  * received with this code.
  */
 
-#ifndef DETDATAFORMATS_INCLUDE_DATAFORMATS_WIB2_WIB2FRAME_HPP_
-#define DETDATAFORMATS_INCLUDE_DATAFORMATS_WIB2_WIB2FRAME_HPP_
+#ifndef FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_WIB2FRAME_HPP_
+#define FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_WIB2FRAME_HPP_
 
 #include <algorithm> // For std::min
 #include <cassert>   // For assert()
@@ -19,9 +19,7 @@
 #include <cstdlib>
 #include <stdexcept> // For std::out_of_range
 
-namespace dunedaq {
-namespace detdataformats {
-namespace wib2 {
+namespace dunedaq::fddetdataformats {
 
 /**
  *  @brief Class for accessing raw WIB v2 frames, as used in ProtoDUNE-SP-II
@@ -156,11 +154,9 @@ public:
 
 };
 
-} // namespace wib2
-} // namespace detdataformats
-} // namespace dunedaq
+} // namespace dunedaq::fddetdataformats
 
-#endif // DETDATAFORMATS_INCLUDE_DATAFORMATS_WIB2_WIB2FRAME_HPP_
+#endif // FDDETDATAFORMATS_INCLUDE_FDDETDATAFORMATS_WIB2FRAME_HPP_
 
 // Local Variables:
 // c-basic-offset: 2

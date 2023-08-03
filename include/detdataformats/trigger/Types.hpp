@@ -6,15 +6,13 @@
  * received with this code.
  */
 
-#ifndef DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TYPES_HPP_
-#define DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TYPES_HPP_
+#ifndef TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TYPES_HPP_
+#define TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TYPES_HPP_
 
 #include <cstdint>
 #include <limits>
 
-namespace dunedaq {
-namespace detdataformats {
-namespace trigger {
+namespace dunedaq::trgdataformats {
 
 // A data timestamp in timing system clock ticks (50 MHz for
 // ProtoDUNE-I, 62.5 MHz for ProtoDUNE-II and DUNE FD). If/when we
@@ -56,8 +54,6 @@ using version_t = uint16_t;
 
 constexpr version_t INVALID_VERSION = std::numeric_limits<version_t>::max();
 
-} // namespace trigger
-} // namespace detdataformats
-} // namespace dunedaq
+} // namespace dunedaq::trgdataformats
 
-#endif // DETDATAFORMATS_INCLUDE_DETDATAFORMATS_TRIGGER_TYPES_HPP_
+#endif // TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TYPES_HPP_
