@@ -7,7 +7,7 @@
  * received with this code.
  */
 
-#include "fddetdataformats/TDE16Frame.hpp"
+#include "detdataformats/tde/TDE16Frame.hpp"
 
 #define BOOST_TEST_MODULE TDE16Frame_test 
 

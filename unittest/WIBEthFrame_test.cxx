@@ -17,8 +17,6 @@
 #include <vector>
 #include <random>
 
-using namespace dunedaq::detdataformats::wibeth;
-
 BOOST_AUTO_TEST_SUITE(WIBEthFrame_test)
 
 BOOST_AUTO_TEST_CASE(WIBEthFrame_ADCDataMutators)
@@ -40,7 +38,7 @@ BOOST_AUTO_TEST_CASE(WIBEthFrame_ADCDataMutators)
   }
 
   // Set ADCs from ADC samples
-  WIBEthFrame wibethframe {};
+  dunedaq::fddetdataformats::WIBEthFrame wibethframe {};
   for(std::size_t i=0; i<v.size(); ++i) {
     for(std::size_t j=0; j<v[i].size(); ++j) {
       wibethframe.set_adc(i, j, v[i][j]);

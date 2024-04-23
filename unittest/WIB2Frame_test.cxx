@@ -20,8 +20,6 @@
 #include <string>
 #include <vector>
 
-using namespace dunedaq::detdataformats::wib2;
-
 // namespace wib2unpack contains functions for manipulating WIB2
 // frames in the format described by EDMS document 2088713:
 // (https://edms.cern.ch/document/2088713/4). The code here is taken
@@ -301,7 +299,7 @@ fake_data(frame14* buffer, size_t nframes)
 
 } // namespace wib2unpack
 
-using namespace dunedaq::detdataformats;
+using namespace dunedaq::fddetdataformats;
 
 typedef std::array<uint16_t, 256> vals_type; // NOLINT(build/unsigned)
 
@@ -406,7 +404,7 @@ BOOST_AUTO_TEST_CASE(WIB2Frame_ADCDataMutators)
     v.push_back(dist(rng));
   }
 
-  WIB2Frame wib2frame {};
+  dunedaq::fddetdataformats::WIB2Frame wib2frame {};
   for(int i=0; i<256; i++) {
     wib2frame.set_adc(i, v[i]);
   }

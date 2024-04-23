@@ -19,7 +19,7 @@
 #include <string>
 #include <vector>
 
-using namespace dunedaq::detdataformats::wib;
+using namespace dunedaq::fddetdataformats;
 
 BOOST_AUTO_TEST_SUITE(WIBFrame_test)
 

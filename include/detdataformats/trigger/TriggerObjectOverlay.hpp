@@ -9,9 +9,9 @@
 #ifndef TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGEROBJECTOVERLAY_HPP_
 #define TRGDATAFORMATS_INCLUDE_TRGDATAFORMATS_TRIGGEROBJECTOVERLAY_HPP_
 
-#include "trgdataformats/TriggerActivityData.hpp"
-#include "trgdataformats/TriggerCandidateData.hpp"
-#include "trgdataformats/TriggerPrimitive.hpp"
+#include "detdataformats/trigger/TriggerActivityData.hpp"
+#include "detdataformats/trigger/TriggerCandidateData.hpp"
+#include "detdataformats/trigger/TriggerPrimitive.hpp"
 
 namespace dunedaq::trgdataformats {
 
