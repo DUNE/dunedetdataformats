@@ -18,12 +18,12 @@
 #include <limits>
 #include <type_traits>
 
-namespace dunedaq::trgdataformats {
+namespace dunedaq::trgdataformats2 {
 
 /**
  * @brief A single energy deposition on a TPC or PDS channel
  */
-struct TriggerPrimitive2
+struct TriggerPrimitive
 {
   static constexpr uint8_t s_trigger_primitive_version = 2;
 
