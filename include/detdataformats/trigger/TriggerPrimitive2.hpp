@@ -42,7 +42,7 @@ struct TriggerPrimitive
   uint64_t adc_integral : 32;
   uint64_t adc_peak : 16;
 
-  TriggerPrimitive2()
+  TriggerPrimitive()
     : version(s_trigger_primitive_version)
     , flag(0)
     , detid(INVALID_DETID)
