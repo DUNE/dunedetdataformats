@@ -23,37 +23,46 @@ namespace dunedaq::trgdataformats2 {
 /**
  * @brief A single energy deposition on a TPC or PDS channel
  */
+
+
 struct TriggerPrimitive
 {
   static constexpr uint8_t s_trigger_primitive_version = 2;
 
   // Metadata.
-  uint64_t version : 8;
-  uint64_t flag : 8;
-  uint64_t detid : 8;
+  uint8_t version;
+  uint8_t flag;
+  uint8_t detid;
 
   // Physics data.
-  uint64_t channel : 24;
+  uint8_t channel_lowbyte;
+  uint8_t channel_middlebyte;
+  uint8_t channel_highbyte;
 
-  uint64_t samples_over_threshold : 16;
-  uint64_t time_start : 64;
-  uint64_t samples_to_peak : 16;
+  unsigned short samples_over_threshold;
+  uint64_t time_start;
+  unsigned short samples_to_peak;
 
-  uint64_t adc_integral : 32;
-  uint64_t adc_peak : 16;
+  unsigned int adc_integral;
+  unsigned short adc_peak;
 
   TriggerPrimitive()
     : version(s_trigger_primitive_version)
     , flag(0)
     , detid(INVALID_DETID)
-    , channel(INVALID_TP_CHANNEL)
+    , channel_lowbyte(INVALID_TP_CHANNEL & 0XFF)
+    , channel_middlebyte((INVALID_TP_CHANNEL & 0XFF00) >> 8)
+    , channel_highbyte((INVALID_TP_CHANNEL & 0XFF0000) >> 16)
     , samples_over_threshold(INVALID_SAMPLES_OVER_THRESHOLD)
     , time_start(INVALID_TIMESTAMP)
     , samples_to_peak(INVALID_SAMPLES_TO_PEAK)
     , adc_integral(0)
     , adc_peak(0)
-  {}
-};
+   {}
+
+  uint64_t Channel() { return channel_lowbyte + (channel_middlebyte << 8) + (channel_highbyte << 12); };
+
+} __attribute__((packed));
 
 } // namespace dunedaq::trgdataformats
 
