@@ -62,6 +62,12 @@ struct TriggerPrimitive
 
   uint64_t Channel() { return channel_lowbyte + (channel_middlebyte << 8) + (channel_highbyte << 12); };
 
+  void SetChannel(uint64_t channel) {
+    channel_lowbyte = channel & 0XFF;
+    channel_middlebyte = (channel & 0XFF00) >> 8;
+    channel_highbyte = (channel & 0XFF0000) >> 16;
+  }
+
 } __attribute__((packed));
 
 } // namespace dunedaq::trgdataformats
