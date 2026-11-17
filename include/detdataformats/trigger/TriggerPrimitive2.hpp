@@ -60,7 +60,7 @@ struct TriggerPrimitive
     , adc_peak(0)
    {}
 
-  uint64_t Channel() { return channel_lowbyte + (channel_middlebyte << 8) + (channel_highbyte << 12); };
+  uint64_t Channel() { return channel_lowbyte + (channel_middlebyte << 8) + (channel_highbyte << 16); };
 
   void SetChannel(uint64_t channel) {
     channel_lowbyte = channel & 0XFF;
