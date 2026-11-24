@@ -25,7 +25,7 @@ A `WIB2Frame` instance contains as members instances of the `WIB2Frame::Header` 
 This format was used for early ProtoDUNE-HD data as well as some ICEBERG data.
 
 ## WIBEth
-[`WIBEth.hpp`](https://github.com/DUNE/dunedetdataformats/blob/main/include/detdataformats/wibeth/WIBEthFrame.hpp)
+[`WIBEthFrame.hpp`](https://github.com/DUNE/dunedetdataformats/blob/main/include/detdataformats/wibeth/WIBEthFrame.hpp)
 
 This frame format is used by the Ethernet WIB interface -- no FELIX or other intermediary hardware is necessary.  Each frame consists of 64 channels' worth of 14-bit ADC data for 64 ticks.  Setters and getters are provided for ADC values, timestamps and channel IDs.
 
