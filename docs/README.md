@@ -7,7 +7,7 @@ For those who work on ProtoDUNE (otherwise skip this paragraph): this package is
 Each section below describes the utilities available for different detectors. Links are provided to the code; be aware, however, that the code you're linked to is taken from the head of this package's `develop` branch and consequently may differ from the code you may be using. 
 
 ## WIB
-[`WIBFrame.hpp`](https://github.com/DUNE-DAQ/detdataformats/blob/develop/include/detdataformats/wib/WIBFrame.hpp)
+[`WIBFrame.hpp`](https://github.com/DUNE/dunedetdataformats/blob/main/include/detdataformats/wib/WIBFrame.hpp)
 
 The `WIBFrame` class contains a nested set of overlay classes and structs. `WIBFrame` includes [private instances](https://dune-daq-sw.readthedocs.io/en/latest/packages/styleguide/#58-access-control) of `WIBHeader` and an array of `ColdataBlock` structs, accessible via getter functions. Each `ColdataBlock` struct contains a [public instance](https://dune-daq-sw.readthedocs.io/en/latest/packages/styleguide/#58-access-control) of a `ColdataHeader` and a public array of `ColdataSegments`. 
 
@@ -15,10 +15,23 @@ Through these classes and structs it's possible to access the value of any chann
 
 Other useful functions in `WIBFrame` include setters for the timestamp and WIB errors in its `WIBHeader` instance, as well as a streamer which allows developers to easily print the contents of the `WIBFrame` instance using the `<<` operator on the instance. 
 
-## WIB2
-[`WIB2Frame.hpp`](https://github.com/DUNE-DAQ/detdataformats/blob/develop/include/detdataformats/wib2/WIB2Frame.hpp)
+This frame format was used to collect data from ProtoDUNE-SP, starting in 2018, as well as some ICEBERG data.
 
-A `WIB2Frame` instance contains as members instances of the `WIB2Frame::Header` and `WIB2Frame::Trailer` structs as well as an array of ADC values. This reflects the definition of the WIB format given in https://edms.cern.ch/document/2088713/4. It also has getters and setters for ADC values, including options to select among U-channel, V-channel and X-channel ADCs when doing so. It's also possible to easily obtain the timestamp of the frame via `get_timestamp`. 
+## WIB2
+[`WIB2Frame.hpp`](https://github.com/DUNE/dunedetdataformats/blob/main/include/detdataformats/wib2/WIB2Frame.hpp)
+
+A `WIB2Frame` instance contains as members instances of the `WIB2Frame::Header` and `WIB2Frame::Trailer` structs as well as an array of ADC values. This reflects the definition of the WIB format given in https://edms.cern.ch/document/2088713/4. It also has getters and setters for ADC values, including options to select among U-channel, V-channel and X-channel ADCs when doing so. It's also possible to easily obtain the timestamp of the frame via `get_timestamp`.
+
+This format was used for early ProtoDUNE-HD data as well as some ICEBERG data.
+
+## WIBEth
+[`WIBEth.hpp`](https://github.com/DUNE/dunedetdataformats/blob/main/include/detdataformats/wibeth/WIBEthFrame.hpp)
+
+This frame format is used by the Ethernet WIB interface -- no FELIX or other intermediary hardware is necessary.  Each frame consists of 64 channels' worth of 14-bit ADC data for 64 ticks.  Setters and getters are provided for ADC values, timestamps and channel IDs.
+
+Detailed documentation can be found at
+
+[`Alex Madorsky's WIB Firmware repo documentation directory`](https://github.com/madorskya/wib_sim/tree/master/doc)
 
 ## DAPHNE
 [`DAPHNEFrame.hpp`](https://github.com/DUNE-DAQ/detdataformats/blob/develop/include/detdataformats/daphne/DAPHNEFrame.hpp)
